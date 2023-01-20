@@ -1,22 +1,17 @@
 package org.fasttrackit.search;
 
 import org.fasttrackit.AppConfig;
+import org.fasttrackit.TestBase;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import static net.bytebuddy.matcher.ElementMatchers.is;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class RegisterTest {
+public class RegisterTest extends TestBase {
 
     @Test
     public void successfulRegisterWithAllDetails() {
-        System.setProperty("webdriver.chrome.driver", AppConfig.getChromeDriverPath());
-        WebDriver driver = new ChromeDriver();
 
         driver.get(AppConfig.getSiteUrl());
 

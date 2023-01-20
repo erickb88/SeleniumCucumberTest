@@ -9,7 +9,8 @@ public class AppConfig {
     private static Properties properties = new Properties();
 
     static {
-        InputStream inputStream = AppConfig.class.getClassLoader().getResourceAsStream("production.properties");
+        String enviroment = System.getProperty("env", "production");
+        InputStream inputStream = AppConfig.class.getClassLoader().getResourceAsStream(enviroment+".properties");
         try {
             properties.load(inputStream);
         } catch (IOException e) {

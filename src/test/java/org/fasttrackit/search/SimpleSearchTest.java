@@ -20,9 +20,9 @@ public class SimpleSearchTest {
 
         WebDriver driver = new ChromeDriver();
 
-        String searchKeyword = "vase";
-
         driver.get("http://testfasttrackit.info/selenium-test/");
+
+        String searchKeyword = "vase";
         driver.findElement(By.id("search")).sendKeys(searchKeyword + Keys.ENTER);
         //driver.findElement(By.xpath("//div[@class='product-info']/div[@class='actions']/button[@class='button btn-cart']")).click();
 

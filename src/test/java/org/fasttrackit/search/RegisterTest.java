@@ -1,5 +1,6 @@
 package org.fasttrackit.search;
 
+import org.fasttrackit.AppConfig;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,10 +15,10 @@ public class RegisterTest {
 
     @Test
     public void successfulRegisterWithAllDetails() {
-        System.setProperty("webdriver.chrome.driver", "C:\\webdriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", AppConfig.getChromeDriverPath());
         WebDriver driver = new ChromeDriver();
 
-        driver.get("http://testfasttrackit.info/selenium-test/");
+        driver.get(AppConfig.getSiteUrl());
 
         driver.findElement(By.linkText("ACCOUNT")).click();
         driver.findElement(By.linkText("Register")).click();

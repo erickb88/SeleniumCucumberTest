@@ -2,10 +2,13 @@ package org.fasttrackit.search;
 
 import org.fasttrackit.AppConfig;
 import org.fasttrackit.TestBase;
+import org.fasttrackit.webviews.Header;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
 import java.util.List;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -17,9 +20,14 @@ public class SimpleSearchTest extends TestBase {
 
         driver.get(AppConfig.getSiteUrl());
 
+        Header header = PageFactory.initElements(driver, Header.class);
+
         String searchKeyword = "vase";
-        driver.findElement(By.id("search")).sendKeys(searchKeyword + Keys.ENTER);
-        //driver.findElement(By.xpath("//div[@class='product-info']/div[@class='actions']/button[@class='button btn-cart']")).click();
+
+        header.search(searchKeyword);
+        //header.getSearchField().sendKeys(searchKeyword + Keys.ENTER);
+        //driver.findElement(By.id("search")).sendKeys(searchKeyword + Keys.ENTER);
+
 
         System.out.println("Pressed Enter in search field");
 

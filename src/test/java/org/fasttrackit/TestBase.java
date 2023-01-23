@@ -11,8 +11,8 @@ public class TestBase {
     @Before
     public void setup(){
 
-        System.setProperty("webdriver.chrome.driver", AppConfig.getChromeDriverPath());
-        driver = new ChromeDriver();
+        String browser = System.getProperty("browser","chrome");
+        driver = DriverFactory.getDriver(browser);
 
 
     }

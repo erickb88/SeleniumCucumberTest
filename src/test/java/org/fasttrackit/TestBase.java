@@ -3,22 +3,24 @@ package org.fasttrackit;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestBase {
 
-    protected WebDriver driver = null;
+    protected WebDriver driver = DriverFactory.getDriver();
     @Before
     public void setup(){
 
         String browser = System.getProperty("browser","chrome");
-        driver = DriverFactory.getDriver(browser);
+        driver = DriverFactory.initDriver(browser);
 
 
     }
     @After
     public void tearDown(){
-        driver.quit();
+        //driver.quit();
+    }
+    public void openHomepage(){
+        driver.get(AppConfig.getSiteUrl());
     }
 
 }

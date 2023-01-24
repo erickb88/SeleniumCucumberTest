@@ -12,6 +12,7 @@ public class Header {
         return searchField;
     }
     public void search(String keyword){
+        searchField.clear();
         searchField.sendKeys(keyword + Keys.ENTER);
     }
 }

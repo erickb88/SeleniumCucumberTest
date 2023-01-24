@@ -5,11 +5,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import java.sql.Driver;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
 
-    public static WebDriver getDriver(String browser){
+    private static WebDriver driver;
+
+    public static WebDriver initDriver(String browser){
         WebDriver driver;
         switch (browser) {
             default:
@@ -28,7 +32,16 @@ public class DriverFactory {
                 break;
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        DriverFactory.driver = driver;
         return driver;
+    }
+
+    public static WebDriver getDriver() {
+        return driver;
+    }
+
+    public static void setDriver(WebDriver driver) {
+        DriverFactory.driver = driver;
     }
 }
